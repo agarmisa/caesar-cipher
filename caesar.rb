@@ -1,12 +1,12 @@
 
 class Caesar
   attr_reader :alph
-  def initialize(number_forward, alph = "abcdefghijklmnopqrstuvwxyz" )
-    @number_forward = number_forward
+  def initialize(shift, alph = "abcdefghijklmnopqrstuvwxyz" )
+    @shift = shift
     @alph = alph
   end
 
-  def cipher(string, number_forward)
+  def cipher(string)
     alph_lc = alph.split('')
     alph_uc = alph.upcase.split('')
     arr = string.split(//).map do |a|
@@ -15,16 +15,16 @@ class Caesar
           a
         else
           match = alph_uc.find_index(a)
-          alph_uc[(match.to_i + number_forward)% 26 ]
+          alph_uc[(match.to_i + @shift)% 26 ]
         end
       else
         match = alph_lc.find_index(a)
-        alph_lc[(match.to_i + number_forward)% 26 ]
+        alph_lc[(match.to_i + @shift)% 26 ]
       end
     end
        arr.join
   end
 end
 
-c = Caesar.new("Hello, Hello, Hello world")
-puts c.cipher("Hello, Hello, Hello world", 23)
+c = Caesar.new(5)
+puts c.cipher("Hello, Hello, Hello world")
