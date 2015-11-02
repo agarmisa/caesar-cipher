@@ -1,5 +1,4 @@
 require 'spec_helper'
-require_relative "../caesar.rb"
 
 describe Caesar do
   before do

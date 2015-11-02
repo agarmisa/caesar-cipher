@@ -22,6 +22,3 @@ class Caesar
        array.join
   end
 end
-
-c = Caesar.new(6)
-puts c.cipher("Hello, Hello, Hello world")
