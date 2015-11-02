@@ -1,8 +1,6 @@
-
 class Caesar
   def initialize(shift, alph = "abcdefghijklmnopqrstuvwxyz" )
     @shift = shift
-    @alph = alph
     @alph_lc = alph.split('')
     @alph_uc = alph.upcase.split('')
   end
@@ -25,5 +23,5 @@ class Caesar
   end
 end
 
-c = Caesar.new(10)
+c = Caesar.new(6)
 puts c.cipher("Hello, Hello, Hello world")
